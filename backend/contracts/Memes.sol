@@ -35,7 +35,7 @@ contract PawpawMemes is ERC721Enumerable, Ownable {
         _baseTokenURI = baseURI;
     }
 
-    function mint() private onlyWhenNotPaused {
+    function mint() public payable onlyWhenNotPaused {
         // check if the caller is on the buyer_at_ico list
         // require();
         //  check that the number of tokes created remains as we wanted
