@@ -13,17 +13,19 @@ const ConnectWallet = ({utility}) => {
             })
             .finally(() => {
             setLoading(false)
+            setWalletConnected(true)
         })
     }
+   
     return (
+        
         <div className={styles.button}>   
         <button
             isLoading={loading}
             className=""
             onClick={() => {
                 connectWallet()
-            }}>Connect Wallet</button>
-
+            }}>Connect Wallet </button> 
         </div>
     );
 };

@@ -75,10 +75,10 @@ const SelectNft = ({utility}) => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* <div className="mt-2.5 text-gray-500 w-full sm:hidden ">
+                                    <div className="mt-2.5 text-gray-500 w-full sm:hidden ">
                                         {nft.engagements.length > 0 && nft.engagements.map((engagement) => (
                                             <p key={engagement.id}>Claimed {format(new Date(engagement.updated_at))} by {engagement.wallet_address.substring(0, 4)}...{engagement.wallet_address.substring(engagement.wallet_address.length - 4)}</p>))}
-                                    </div> */}
+                                    </div>
     
     
                                 </div>

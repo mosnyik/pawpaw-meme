@@ -1,7 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config({path: '.env'});
 
-ALCHEMY_HTTP_URL= process.env.ALCHEMY_HTTP_URL
+POLYGON_MUMBAI_RPC_URL= process.env.POLYGON_MUMBAI_RPC_URL
 
 PRIVATE_KEY= process.env.PRIVATE_KEY
 
@@ -12,7 +12,7 @@ module.exports = {
   solidity: "0.8.17",
   networks: {
     mumbai:{
-      url: ALCHEMY_HTTP_URL,
+      url: POLYGON_MUMBAI_RPC_URL,
       accounts: [PRIVATE_KEY],
     },
   },

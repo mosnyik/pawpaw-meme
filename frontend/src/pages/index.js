@@ -4,6 +4,8 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import Web3Modal from "web3modal";
 import { claimed, isEngaged } from "../utils/NFTValidationUtils/claimedNFT";
 import dynamic from "next/dynamic";
+import { PPM_CONTRACT_ADDRESS, abi  } from "@/constants";
+import { Contract, providers, utils } from "ethers";
 
 const LinkToWhal3s = dynamic(() => import('../utils/whal3s'), {
   ssr: false
@@ -15,25 +17,28 @@ export default function Home() {
   const web3ModalRef = useRef();
   const [step, setStep] = useState(-1);
   const [userEngaged, setUserEngaged] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   let stepp;
   let isEngagedd;
 
+ 
   const mint = async () => {
     try {
-      console.log("PPM minted");
       const signer = await getProviderOrSigner(true);
-      const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi, signer);
-      const tx = await nftContract.mint({
-        value: utils.parseEther("0.01"),
-      });
+      const nftContract = new Contract(PPM_CONTRACT_ADDRESS, abi, signer);
+      const tx = await nftContract.mint(
+        {value: utils.parseEther("0.01"),}
+      );
       setLoading(true);
       await tx.wait();
       setLoading(false);
       window.alert("You successfully minted a PPM NFT!");
+      console.log("PPM minted");
     } catch (err) {
       console.error(err);
     }
   };
+
   const connectWallet = async () => {
     try {
          await getProviderOrSigner();
@@ -69,7 +74,6 @@ export default function Home() {
       });
 
       connectWallet();
-      // getAmounts();
     }
   }, [walletConnected]);
 
@@ -80,7 +84,6 @@ export default function Home() {
 
   }, [userEngaged]);
 
-  
   const renderButton = () => {
   
     if (userEngaged || (step == 6)) {
@@ -112,7 +115,7 @@ export default function Home() {
           A decentralized media platform for content creators and consumers
         </p>
         <p className="mt-6 py-3 text-xl md:text-2xl lg:text-3xl text-center max-w-3xl">
-          You need a PPM NFT to be part of this community, mint one <button onClick={mint()}>here</button>
+          You need a PPM NFT to be part of this community, mint one <button onClick={mint} className='bold hover:underline mt-8 px-6 py-3 rounded-lg bg-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>here</button>
         </p>
         {!userEngaged && 
           <div  className='bold hover:underline mt-8 px-6 py-3 rounded-lg bg-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>

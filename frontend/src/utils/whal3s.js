@@ -42,7 +42,7 @@ const UtilityComponent = () => {
                 setStep(step.detail.step);
                 setUtility(_utility);
                 checkingSteps(step.detail.step);
-                step == 6 ? setStarted(false) : "Start with PPM NFT";
+                step == 6 ? setStarted(false) : "";
             })
             setStep(_utility.step)
             setUtility(_utility)
@@ -82,7 +82,7 @@ const UtilityComponent = () => {
                 }
                 {step === NftValidationUtility.STEP_CLAIMED ?  call() : ""}
                 </>
-            : " mint Pawpaw meme to continue"}
+            : "mint Pawpaw meme to continue"}
        </>
     );
 };
