@@ -92,7 +92,7 @@ const SelectNft = ({utility}) => {
                     <div className={styles.button}>
 
                     <button
-                        // disabled={utility.step !== NftValidationUtility.STEP_TOKEN_SELECTED}
+                        disabled={utility.step !== NftValidationUtility.STEP_TOKEN_SELECTED}
                         isLoading={loading}
                         onClick={() => {
                             if (utility.step !== NftValidationUtility.STEP_TOKEN_SELECTED)

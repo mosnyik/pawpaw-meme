@@ -10,7 +10,7 @@ const Navigation = () => {
             <h1 className="text-5xl font-bold mb-4 lg:mb-0">Image Palace</h1>
             <div className='px-10 flex flex-row justify-around space-x-6'>  
                 <div className='hover:underline '>
-                    <Link href = {'/'}>
+                    <Link href = {'/home'}>
                         Home
                     </Link>
                 </div>
@@ -25,9 +25,7 @@ const Navigation = () => {
                     </Link>
                 </div>
             </div>
-            {/* <div>
-                <ConnectWallet />
-            </div> */}
+            
         </div>)
          
      );

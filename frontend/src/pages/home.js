@@ -114,14 +114,18 @@ export default function Home() {
         <p className="mt-6 py-3 text-xl md:text-2xl lg:text-3xl text-center max-w-3xl">
           A decentralized media platform for content creators and consumers
         </p>
-        <p className="mt-6 py-3 text-xl md:text-2xl lg:text-3xl text-center max-w-3xl">
+        <p className="mt-6 py-3 text-xl md:text-2xl sm:text-3xl text-center max-w-3xl">
           You need a PPM NFT to be part of this community, mint one <button onClick={mint} className='bold hover:underline mt-8 px-6 py-3 rounded-lg bg-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>here</button>
         </p>
         {!userEngaged && 
           <div  className='bold hover:underline mt-8 px-6 py-3 rounded-lg bg-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
-            {renderButton()}
+                 <Link href = {'/gallery'}>
+                    Check our Media
+                    </Link>
           </div>
           }  
+         
+       
       </main>
 
       <footer className="flex justify-center items-center w-full h-16 border-t">

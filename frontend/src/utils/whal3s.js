@@ -5,6 +5,8 @@ import SelectNft from '../utils/NFTValidationUtils/selectNFT';
 import LoadingNfts from '../utils/NFTValidationUtils/loadingNFTs';
 import Uninitialized from '../utils/NFTValidationUtils/uninitialized';
 import { checkingSteps, checkingEngagement, call } from '../utils/NFTValidationUtils/claimedNFT';
+import ClaimNft from './NFTValidationUtils/claimNFT';
+import Link from 'next/link';
 
 const UtilityComponent = () => {
 
@@ -78,11 +80,14 @@ const UtilityComponent = () => {
                 {step === NftValidationUtility.STEP_WALLET_CONNECTED && <LoadingNfts/>}
                 {(step === NftValidationUtility.STEP_NFTS_FETCHED || step === NftValidationUtility.STEP_TOKEN_SELECTED) &&
                     <SelectNft utility={utility}/>}
-                {step === NftValidationUtility.STEP_RESERVED ?  claim() : ""
+                {step === NftValidationUtility.STEP_RESERVED  && <ClaimNft utility={utility}/>
+                // ?  claim() : ""
                 }
-                {step === NftValidationUtility.STEP_CLAIMED ?  call() : ""}
-                </>
-            : "mint Pawpaw meme to continue"}
+                {step === NftValidationUtility.STEP_CLAIMED && call() }
+                <Link href = {'/gallery'}>
+            Check our Media
+            </Link>                </>
+            :   ''}
        </>
     );
 };
